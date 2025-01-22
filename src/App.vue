@@ -17,7 +17,7 @@ const cardsInfo = ref([
     imgUrlmb: 'img/card/cardImg01-mb.png',
     cardState: 'Learning',
     releaseTime: '2023-12-21T00:00:00Z',
-    title: 'TML & CSS foundations',
+    title: 'HTML & CSS foundations',
     content:
       'These languages are the backbone of every website, defining structure, content, and presentation.',
     author: 'Greg Hooper',

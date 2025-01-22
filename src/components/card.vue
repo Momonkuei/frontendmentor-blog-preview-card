@@ -8,17 +8,17 @@
 
     <div class="mb-6 flex flex-col gap-3">
       <span
-        class="w-fit bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-xs sm:text-[0.875rem] leading-normal text-[rgba(17,17,17,1)]"
+        class="w-fit bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-xs sm:text-[0.875rem] leading-normal text-[rgba(17,17,17,1)] font-extrabold"
         >{{ cardInfo.cardState }}</span
       >
-      <div class="text-xs sm:text-[0.875rem]">{{ publishedTime }}</div>
+      <div class="text-xs sm:text-[0.875rem] font-medium">{{ publishedTime }}</div>
       <div class="text-xl sm:text-2xl leading-normal font-extrabold">{{ cardInfo.title }}</div>
       <div class="text-sm sm:text-base leading-normal text-[rgba(107,107,107,1)] line-clamp-3">
         {{ cardInfo.content }}
       </div>
     </div>
 
-    <div class="flex flex-nowrap gap-3 items-center">
+    <div class="flex flex-nowrap gap-3 items-center mb-[1.5rem]">
       <div class="rounded-full overflow-hidden">
         <img class="w-[2rem] h-[2rem]" :src="cardInfo.authorImg" alt="" />
       </div>
