@@ -1,33 +1,77 @@
 <template>
-  <div class="bg-white w-[24rem] h-[32.625rem] rounded-[1.25rem] p-[1.5rem]">
+  <div
+    class="bg-white max-w-[327px] max-h-[501px] sm:max-w-[24rem] sm:max-h-[32.625rem] rounded-[1.25rem] p-[1.5rem]"
+  >
     <div class="mb-[1.5rem]">
-      <img src="../assets/img/card/cardImg01.png" alt="" />
+      <img :src="currentImage" alt="" />
     </div>
 
-    <div class="mb-6">
+    <div class="mb-6 flex flex-col gap-3">
       <span
-        class="inline-block bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-[0.875rem] leading-normal text-[rgba(17,17,17,1)] mb-4"
-        >Learning</span
+        class="w-fit bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-xs sm:text-[0.875rem] leading-normal text-[rgba(17,17,17,1)]"
+        >{{ cardInfo.cardState }}</span
       >
-      <div class="text-[0.875rem] mb-3">Published 21 Dec 2023</div>
-      <div class="text-[1.5rem] leading-normal font-extrabold">HTML & CSS foundations</div>
-      <div class="text-base leading-normal text-[rgba(107,107,107,1)]">
-        These languages are the backbone of every website, defining structure, content, and
-        presentation.
+      <div class="text-xs sm:text-[0.875rem]">{{ publishedTime }}</div>
+      <div class="text-xl sm:text-2xl leading-normal font-extrabold">{{ cardInfo.title }}</div>
+      <div class="text-sm sm:text-base leading-normal text-[rgba(107,107,107,1)]">
+        {{ cardInfo.content }}
       </div>
     </div>
 
     <div class="flex flex-nowrap gap-3 items-center">
       <div class="rounded-full overflow-hidden">
-        <img class="w-[2rem] h-[2rem]" src="../assets/img/user/userpic01.png" alt="" />
+        <img class="w-[2rem] h-[2rem]" :src="cardInfo.authorImg" alt="" />
       </div>
-      <div class="text-[rgba(17,17,17,1)] text-sm leading-normal font-extrabold">Greg Hooper</div>
+      <div class="text-[rgba(17,17,17,1)] text-sm leading-normal font-extrabold">
+        {{ cardInfo.author }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useBreakpoints } from '@vueuse/core'
+const props = defineProps(['cardInfo'])
 defineOptions({
   name: 'App',
+})
+
+const breakpoints = useBreakpoints({
+  sm: 640,
+  md: 1024,
+})
+
+const isSmallScreen = breakpoints.smaller('sm')
+const currentImage = computed(() =>
+  isSmallScreen.value ? props.cardInfo.imgUrlmb : props.cardInfo.imgUrl,
+)
+
+const publishedTime = computed(() => {
+  const time = new Date(props.cardInfo.releaseTime)
+  // 確保日期有效
+  if (isNaN(time)) return 'Invalid date'
+  // 獲取月份名稱
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+
+  const day = time.getDate()
+  const month = monthNames[time.getMonth()]
+  const year = time.getFullYear()
+
+  // 返回格式化後的日期
+  return `Published ${day} ${month} ${year}`
 })
 </script>
