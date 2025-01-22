@@ -8,11 +8,15 @@
 
     <div class="mb-6 flex flex-col gap-3">
       <span
-        class="w-fit bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-xs sm:text-[0.875rem] leading-normal text-[rgba(17,17,17,1)] font-extrabold"
+        class="w-fit bg-[rgb(244,208,78)] py-[0.25rem] px-[0.75rem] text-xs sm:text-[0.875rem] leading-normal text-[rgba(17,17,17,1)] font-extrabold cursor-default"
         >{{ cardInfo.cardState }}</span
       >
-      <div class="text-xs sm:text-[0.875rem] font-medium">{{ publishedTime }}</div>
-      <div class="text-xl sm:text-2xl leading-normal font-extrabold">{{ cardInfo.title }}</div>
+      <div class="text-xs sm:text-[0.875rem] font-medium cursor-default">{{ publishedTime }}</div>
+      <div
+        class="text-xl sm:text-2xl leading-normal font-extrabold hover:text-[rgba(244,208,78,1)] cursor-pointer"
+      >
+        {{ cardInfo.title }}
+      </div>
       <div class="text-sm sm:text-base leading-normal text-[rgba(107,107,107,1)] line-clamp-3">
         {{ cardInfo.content }}
       </div>
