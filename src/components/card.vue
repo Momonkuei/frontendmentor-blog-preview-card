@@ -13,7 +13,7 @@
       >
       <div class="text-xs sm:text-[0.875rem]">{{ publishedTime }}</div>
       <div class="text-xl sm:text-2xl leading-normal font-extrabold">{{ cardInfo.title }}</div>
-      <div class="text-sm sm:text-base leading-normal text-[rgba(107,107,107,1)]">
+      <div class="text-sm sm:text-base leading-normal text-[rgba(107,107,107,1)] line-clamp-3">
         {{ cardInfo.content }}
       </div>
     </div>
