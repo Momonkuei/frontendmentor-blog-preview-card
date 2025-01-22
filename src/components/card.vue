@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white max-w-[327px] max-h-[501px] sm:max-w-[24rem] sm:max-h-[32.625rem] rounded-[1.25rem] p-[1.5rem]"
+    class="bg-white max-w-[327px] max-h-[501px] sm:max-w-[24rem] sm:max-h-[32.625rem] rounded-[1.25rem] p-[1.5rem] shadow-[0.5rem_0.5rem_0_0_rgba(0,0,0,1)]"
   >
     <div class="mb-[1.5rem]">
       <img :src="currentImage" alt="" />
